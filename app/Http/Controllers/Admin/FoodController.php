@@ -103,6 +103,8 @@ class FoodController extends Controller
     public function destroy(Food $food)
     {
         $food->delete();
+        Storage::disk('upload_files')->delete('/foods/' . $food->thumbnail);
+        
         return redirect()->back()->with('success', 'The food was delete successfully!');
     }
 }
