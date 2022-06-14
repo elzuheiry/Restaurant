@@ -11,7 +11,7 @@
       <div class="proDet">
         <span> <i class="fas fa-user"></i></span>
         <div>
-          <h5>الاسم بالكامل</h5>
+          <h5>{{ __('messages.name') }}</h5>
           <input type="text" name="name" value="{{ old('name') }}" />
         </div>
       </div>
@@ -19,7 +19,7 @@
       <div class="proDet">
         <span> <i class="fas fa-user"></i></span>
         <div>
-          <h5>اسم المستخدم</h5>
+          <h5>{{ __('messages.username') }}</h5>
           <input type="text" name="username" value="{{ old('username') }}" />
         </div>
       </div>
@@ -27,7 +27,7 @@
         <div class="proDet">
           <span> <i class="fa-solid fa-envelope"></i></span>
           <div>
-            <h5>البريد الاكترونى</h5>
+            <h5>{{ __('messages.email') }}</h5>
             <input type="text" name="email" value="{{ old('email') }}" />
           </div>
         </div>
@@ -36,7 +36,7 @@
         <div class="proDet">
           <span> <i class="fa-solid fa-lock"></i></span>
           <div>
-            <h5>كلمه المرور</h5>
+            <h5>{{ __('messages.password') }}</h5>
             <input type="password" name="password" id="" />
           </div>
         </div>
@@ -44,7 +44,7 @@
         <div class="proDet">
             <span> <i class="fa-solid fa-lock"></i></span>
             <div>
-              <h5>تاكيد كلمة المرور</h5>
+              <h5>{{ __('messages.password-conformation') }}</h5>
               <input type="password" name="password_confirmation" id="" />
             </div>
         </div>
@@ -53,7 +53,7 @@
           type="submit"
           class="btn grBtn"
         >
-            تسجيل
+          {{ __('messages.sign-up') }}
         </button>
         <img src="{{ asset('assets/img/fire.jpg') }}" alt="" class="fire" />
     </form>

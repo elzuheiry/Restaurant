@@ -20,4 +20,9 @@ class Controller extends BaseController
     {
         return view('products.index');
     }
+
+    public function menu()
+    {
+        return view('menu');
+    }
 }

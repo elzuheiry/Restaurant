@@ -13,7 +13,7 @@
         <div class="proDet">
           <span> <i class="fa-solid fa-envelope"></i></span>
           <div>
-            <h5>البريد الاكترونى</h5>
+            <h5>{{ __('messages.email') }}</h5>
             <input type="text" name="email" value="{{ old('email') }}" />
           </div>
         </div>
@@ -22,7 +22,7 @@
         <div class="proDet">
           <span> <i class="fa-solid fa-lock"></i></span>
           <div>
-            <h5>كلمه المرور</h5>
+            <h5>{{ __('messages.password') }}</h5>
             <input type="password" name="password" id="" />
           </div>
         </div>
@@ -31,7 +31,7 @@
           type="submit"
           class="btn grBtn"
         >
-          تسجيل الدخول
+          {{ __('messages.sign-in') }}
         </button>
 
         <img src="{{ asset('assets/img/fire.jpg') }}" alt="" class="fire" />

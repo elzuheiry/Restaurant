@@ -12,26 +12,24 @@
 <div id="mySidepanel" class="sidepanel">
     <br /><br />
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-    <a href="menu.html"><i class="fas fa-user"></i>menu</a>
-    <a href="#"><i class="fas fa-headset"></i>contact us</a>
+    <a href="{{ route('menu') }}"><i class="fas fa-user"></i>{{ __('messages.menu') }}</a>
+    <a href="#"><i class="fas fa-headset"></i>{{ __('messages.contact-us') }}</a>
     
     @guest
-    <a href="{{ route('register') }}"><i class="fas fa-sign-out-alt"></i>register</a>
-    <a href="{{ route('login') }}"><i class="fas fa-sign-out-alt"></i>login</a>
+    <a href="{{ route('register') }}"><i class="fas fa-sign-out-alt"></i>{{ __('messages.register') }}</a>
+    <a href="{{ route('login') }}"><i class="fas fa-sign-out-alt"></i>{{ __('messages.login') }}</a>
     @endguest
 
     @auth
         @if (Auth::user()->hasRole('admin'))
-            <a href="{{ route('admin.index') }}"><i class="fas fa-globe"></i>لوحة التحكم</a>
+            <a href="{{ route('admin.index') }}"><i class="fas fa-globe"></i>{{ __("messages.dashboard") }}</a>
         @endif
-        <a href=""><i class="fas fa-check-circle"></i>الطالبات</a>
-        <a href=""><i class="fas fa-check-circle"></i>تم التسليم</a>
-        <a href=""><i class="fas fa-undo"></i>مرتجع</a>
-        <a href=""><i class="fas fa-headset"></i>اتصل بنا</a>
-        <a href=""><i class="fas fa-star-half-alt"></i>التقييم</a>
-        <a href=""><i class="fas fa-globe"></i>تغيير اللغة</a>
-
-        <a href=""><i class="fas fa-user"></i>{{ Auth::user()->username }}</a>
+        <a href=""><i class="fas fa-check-circle"></i>{{ __('messages.orders') }}</a>
+        <a href=""><i class="fas fa-check-circle"></i>{{ __("messages.delivered") }}</a>
+        <a href=""><i class="fas fa-undo"></i>{{ __('messages.bounce') }}</a>
+        <a href=""><i class="fas fa-headset"></i>{{ __('messages.contact-us') }}</a>
+        <a href=""><i class="fas fa-star-half-alt"></i>{{ __('messages.rating') }}</a>
+        <a href="{{ route('users.profile') }}"><i class="fas fa-user"></i>{{ Auth::user()->username }}</a>
         <!-- Authentication -->
         <form method="POST" action="{{ route('logout') }}">
             @csrf
