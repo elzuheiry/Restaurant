@@ -3,6 +3,8 @@
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
@@ -35,6 +37,12 @@
     <link rel="stylesheet" href="{{ asset('dashboard/css/vertical-layout-light/style.css') }}" />
     <!-- endinject -->
     <link rel="shortcut icon" href="{{ asset('dashboard/images/favicon.png') }}" />
+
+    {{-- DATATABLE --}}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>
+    <link href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+
   </head>
   <body>
     <div class="container-scroller">
@@ -98,5 +106,31 @@
     <script src="{{ asset('dashboard/js/file-upload.js') }}"></script>
     <script src="{{ asset('dashboard/js/typeahead.js') }}"></script>
     <script src="{{ asset('dashboard/js/select2.js') }}"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
+
+    {{-- <script type="text/javascript">
+      $(document).ready(function () {
+
+        $.fn.dataTable.ext.errMode = 'throw';
+        
+        let table =  $('#datatable').DataTable({
+          processing: true,
+          serverSide: true,
+          ajax: "{{ route('product.data') }}",
+          columns: [
+              {data: 'DT_RowIndex', name: 'DT_RowIndex'},
+              {data: 'name', name: 'name'},
+              {data: 'description', name: 'description'},
+              {data: 'action', name: 'action', orderable: true, searchable: true},
+          ]
+        });
+        
+      });
+    </script> --}}
   </body>
 </html>

@@ -37,6 +37,7 @@ Route::group(['prefix' => 'admin'], function() {
     Route::group(['prefix' => 'products'], function() {
 
         Route::get('/', [FoodController::class, 'index'])->name('product.foods');
+        // Route::get('get-data', [FoodController::class, 'getFood'])->name('product.data');
         
         Route::get('create', [FoodController::class, 'create'])->name('product.create');
         Route::post('create', [FoodController::class, 'store']);

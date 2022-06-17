@@ -4,10 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Food;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
 use Intervention\Image\ImageManagerStatic as Image;
-
+use Yajra\Datatables\Datatables;
 
 class FoodController extends Controller
 {
@@ -24,6 +25,19 @@ class FoodController extends Controller
         ]);
     }
 
+    // public function getFood(Request $request)
+    // {
+    //     if($request->ajax()){
+    //         $data = Food::latest()->get();
+
+    //         return Datatables::of($data)
+    //             ->addIndexColumn()
+    //             ->addColumn('action', 'buttons.dataTable')
+    //             ->rowColumns(['action'])
+    //             ->make(true);
+    //     }
+    // }
+
 
     public function create()
     {
@@ -35,7 +49,7 @@ class FoodController extends Controller
         $attributes = request()->validate([
             'name' => ['required', 'min:3', 'max:255', Rule::unique('food', 'name')],
             'slug' => ['required', 'min:3', 'max:255', Rule::unique('food', 'slug')],
-            'thumbnail' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
+            'thumbnail' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:5048'],
             'type_id' => ['required', Rule::exists('types', 'id')],
             'description' => ['required', 'min:3'],
             'price' => ['required', 'max:255'],
