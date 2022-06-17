@@ -21,7 +21,7 @@ class FoodController extends Controller
     public function index()
     {
         return view('admin.products.index', [
-            'foods' => Food::all()
+            'foods' => Food::latest()->paginate(10)
         ]);
     }
 

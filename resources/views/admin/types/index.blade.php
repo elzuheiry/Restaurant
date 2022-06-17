@@ -56,6 +56,8 @@
     
                         </tbody>
                     </table>
+
+                    {{ $types->links() }}
                     @else
                         <h4>No types now, please checked later</h4>
                     @endif

@@ -9,6 +9,6 @@ class OrderStatus extends Model
 {
     use HasFactory;
 
-    protected $guared = [];
+    protected $guarded = [];
 
 }

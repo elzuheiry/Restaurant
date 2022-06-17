@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\FoodController;
 use App\Http\Controllers\Admin\TypeController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\Users\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -21,18 +22,27 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [Controller::class, 'index'])->name('index');
 Route::get('menu', [Controller::class, 'menu'])->name('menu');
-Route::get('product', [Controller::class, 'show'])->name('product.show');
 
 Route::get('cart', [CartController::class, 'index'])->name('cart.index');
 
+Route::group(['prefix' => 'products'], function() {
+
+    Route::get('/', [ProductController::class, 'index'])->name('product.index');
+
+    Route::post('store', [ProductController::class, 'store'])->name('product.store');
+    
+});
+
 Route::group(['prefix' => 'users'], function() {
+
     Route::get('/profile', [UserController::class, 'index'])->name('users.profile');
+    
 });
 
 
-Route::group(['prefix' => 'admin'], function() {
+Route::group(['prefix' => 'admins'], function() {
 
-    Route::get('/dashboard', [AdminController::class, 'index'])->name('admin.index');
+    Route::get('/', [AdminController::class, 'index'])->name('admin.index');
 
     Route::group(['prefix' => 'products'], function() {
 

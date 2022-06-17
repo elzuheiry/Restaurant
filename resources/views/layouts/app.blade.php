@@ -15,6 +15,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/slick/slick-theme.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" />
 
+
   </head>
   <body>
     <div class="centralize col-md-4">

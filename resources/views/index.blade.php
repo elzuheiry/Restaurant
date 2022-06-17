@@ -25,7 +25,7 @@
           <div class="tab-pane fade show active" id="meals" role="tabpanel" aria-labelledby="meals-tab">
 
             <div class="content col-md-12">
-              <a href="{{ route("product.show") }}"  class="witchItm">
+              <a href="{{ route("product.index") }}"  class="witchItm">
                 <img src="{{ asset("assets/img/1.png") }}" alt="">
                 <div class="pad-10">
                   <h5>مكسيكيان باكدج</h5> 
@@ -80,7 +80,7 @@
                 </div>
               </a>
               <div class="clearfix"></div>
-              <a href="{{ route("product.show") }}"  class="witchItm">
+              <a href="{{ route("product.index") }}"  class="witchItm">
                 <img src="{{ asset("assets/img/2.png") }}" alt="">
                 <div class="pad-10">
                   <h5>فاهيتا سورى</h5> 
@@ -135,7 +135,7 @@
                 </div>
               </a>
               <div class="clearfix"></div>
-              <a href="{{ route("product.show") }}"  class="witchItm">
+              <a href="{{ route("product.index") }}"  class="witchItm">
                 <img src="{{ asset("assets/img/1.png") }}" alt="">
                 <div class="pad-10">
                   <h5>مكسيكيان باكدج</h5> 
@@ -190,7 +190,7 @@
                 </div>
               </a>
               <div class="clearfix"></div>
-              <a href="{{ route("product.show") }}"  class="witchItm">
+              <a href="{{ route("product.index") }}"  class="witchItm">
                 <img src="{{ asset("assets/img/2.png") }}" alt="">
                 <div class="pad-10">
                   <h5>فاهيتا سورى</h5> 
@@ -253,7 +253,7 @@
           <div class="tab-pane fade" id="sandwitches" role="tabpanel" aria-labelledby="sandwitches-tab">
             <div class="content">
               <div class="content col-md-12">
-                <a href="{{ route("product.show") }}" class="witchItm">
+                <a href="{{ route("product.index") }}" class="witchItm">
                   <img src="{{ asset("assets/img/1.png") }}" alt="">
                   <div class="pad-10">
                     <h5>مكسيكيان باكدج</h5> 
@@ -310,7 +310,7 @@
 
                 <div class="clearfix"></div>
 
-                <a href="{{ route("product.show") }}" class="witchItm">
+                <a href="{{ route("product.index") }}" class="witchItm">
                   <img src="{{ asset("assets/img/2.png") }}" alt="">
                   <div class="pad-10">
                     <h5>فاهيتا سورى</h5> 
@@ -365,7 +365,7 @@
                   </div>
                 </a>
                 <div class="clearfix"></div>
-                <a href="{{ route("product.show") }}" class="witchItm">
+                <a href="{{ route("product.index") }}" class="witchItm">
                   <img src="{{ asset("assets/img/1.png") }}" alt="">
                   <div class="pad-10">
                     <h5>مكسيكيان باكدج</h5> 
@@ -420,7 +420,7 @@
                   </div>
                 </a>
                 <div class="clearfix"></div>
-                <a href="{{ route("product.show") }}" class="witchItm">
+                <a href="{{ route("product.index") }}" class="witchItm">
                   <img src="{{ asset("assets/img/2.png") }}" alt="">
                   <div class="pad-10">
                     <h5>فاهيتا سورى</h5> 
@@ -480,7 +480,7 @@
 
           <div class="tab-pane fade" id="offers" role="tabpanel" aria-labelledby="offers-tab">
             <div class="content col-md-12">
-              <a href="{{ route("product.show") }}" class="witchItm">
+              <a href="{{ route("product.index") }}" class="witchItm">
                 <img src="{{ asset("assets/img/1.png") }}" alt="">
                 <div class="pad-10">
                   <h5>مكسيكيان باكدج</h5> 
@@ -535,7 +535,7 @@
                 </div>
               </a>
               <div class="clearfix"></div>
-              <a href="{{ route("product.show") }}"  class="witchItm">
+              <a href="{{ route("product.index") }}"  class="witchItm">
                 <img src="{{ asset("assets/img/2.png") }}" alt="">
                 <div class="pad-10">
                   <h5>فاهيتا سورى</h5> 
@@ -590,7 +590,7 @@
                 </div>
               </a>
               <div class="clearfix"></div>
-              <a href="{{ route("product.show") }}"  class="witchItm">
+              <a href="{{ route("product.index") }}"  class="witchItm">
                 <img src="{{ asset("assets/img/1.png") }}" alt="">
                 <div class="pad-10">
                   <h5>مكسيكيان باكدج</h5> 
@@ -645,7 +645,7 @@
                 </div>
               </a>
               <div class="clearfix"></div>
-              <a href="{{ route("product.show") }}"  class="witchItm">
+              <a href="{{ route("product.index") }}"  class="witchItm">
                 <img src="{{ asset("assets/img/2.png") }}" alt="">
                 <div class="pad-10">
                   <h5>فاهيتا سورى</h5> 

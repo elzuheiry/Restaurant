@@ -16,11 +16,6 @@ class Controller extends BaseController
         return view('index');   
     }
 
-    public function show()
-    {
-        return view('products.index');
-    }
-
     public function menu()
     {
         return view('menu');

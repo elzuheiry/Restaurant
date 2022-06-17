@@ -10,7 +10,7 @@ class Food extends Model
     use HasFactory;
 
     protected $table = 'food';
-    protected $guardede = [];
+    protected $guarded = [];
 
     public function type()
     {

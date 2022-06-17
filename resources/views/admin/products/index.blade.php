@@ -52,6 +52,9 @@
                           @endforeach
                         </tbody>
                     </table>
+
+                    {{ $foods->links() }}
+
                     @else
                         <h4>No foods now, please checked later</h4>
                     @endif
