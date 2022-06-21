@@ -47,6 +47,7 @@ Route::group(['prefix' => 'product'], function() {
 Route::group(['prefix' => 'users'], function() {
 
     Route::get('/profile', [UserController::class, 'index'])->name('users.profile');
+    Route::patch('{user}/update', [UserController::class, 'update'])->name('users.update');
     
 });
 

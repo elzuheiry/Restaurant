@@ -13,6 +13,8 @@ return [
     'login' => 'تسجيل دخول',
     'email' => 'البريد الكترونى',
     'name' => 'الاسم بالكامل',
+    'phone' => 'رقم الجوال',
+    'address' => 'العنوان',
     'username' => 'اسم المستخدم',
     'password' => 'كلمة المرور',
     'password-conformation' => 'تاكيد كلمة المرور',
@@ -22,5 +24,6 @@ return [
     'number-of-card' => 'رقم الكارت',
     'the-code' => 'الكود',
     'paying-off' => 'الدفع',
+    'update' => 'تحديث',
 
 ];

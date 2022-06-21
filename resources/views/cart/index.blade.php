@@ -9,14 +9,9 @@
     </div>
 
     <div class="clearfix"></div>
-    <!-- <img src="data/WhatsApp Unknown 2022-01-26 at 11.11.04 AM/WhatsApp Image 2022-01-26 at 11.10.09 AM (3).jpeg" alt=""> -->
-
     @auth
-        
       @if ($carts->count())
-
           @foreach ($carts as $cart)
-            
             <div class="item">
               <form action="{{ route('cart.destroy', $cart->id) }}" method="post">
                 @csrf
@@ -42,11 +37,8 @@
                 </div>
               </div>
             </div>
-
           @endforeach
-
           <br>
-
           <form action="{{ route('cart.store') }}" method="post">
             @csrf
             
@@ -76,7 +68,6 @@
             <div class="d-flex">
               <button class="grayBtn" type="submit">اكمل الطلب</button>
             </div>
-
           </form>
       @else
         <p>لم تقم بعمل طلب لاى وجبة من قبل</p>

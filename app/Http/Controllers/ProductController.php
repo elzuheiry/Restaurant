@@ -5,8 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\CartItem;
 use App\Models\Food;
 use Illuminate\Http\Request;
-
-
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
@@ -26,16 +25,22 @@ class ProductController extends Controller
             'quantity' => ['required']
         ]);
 
-        $attributes['user_id'] = auth()->user()->id;
-        $attributes['food_id'] = $food->id;
+        if(Auth::id()){
 
-        $quantity = $attributes['quantity'];
-        $price = $food->price;
-        $subTotal = $price * $quantity;
+            $attributes['user_id'] = Auth::id();
+            $attributes['food_id'] = $food->id;
+    
+            $quantity = $attributes['quantity'];
+            $price = $food->price;
+            $subTotal = $price * $quantity;
+    
+            $attributes['subTotal'] = $subTotal;
+            
+            CartItem::create($attributes);
+            return redirect()->route('cart.index');
 
-        $attributes['subTotal'] = $subTotal;
-        
-        CartItem::create($attributes);
-        return redirect()->route('cart.index');
+        }
+
+        return redirect()->back();
     }
 }
