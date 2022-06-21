@@ -33,5 +33,11 @@
     <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('assets/slick/slick.min.js') }}"></script>
     <script src="{{ asset('assets/js/main.js') }}"></script>
+
+    <script>
+
+    
+
+    </script>
   </body>
 </html>

@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->string('thumbnail')->nullable();
             $table->text('description');
-            $table->string('price');
+            $table->float('price');
             $table->string('alias')->nullable();
             $table->enum('discount_type', ['fixed', 'percent']);
             $table->string('discount_value');

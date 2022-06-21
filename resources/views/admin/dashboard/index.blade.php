@@ -17,6 +17,11 @@
                     <div
                       class="statistics-details d-flex align-items-center justify-content-between"
                     >
+                      <div class="d-none d-md-block">
+                        <p class="statistics-title">All Types</p>
+                        <h3 class="rate-percentage">{{ App\models\Type::count() }}</h3>
+                      </div>
+
                       <div>
                         <p class="statistics-title">All Foods</p>
                         <h3 class="rate-percentage">{{ App\models\Food::count() }}</h3>
@@ -29,7 +34,7 @@
 
                       <div class="d-none d-md-block">
                         <p class="statistics-title">All Carts</p>
-                        <h3 class="rate-percentage">{{ App\models\Cart::count() }}</h3>
+                        <h3 class="rate-percentage">{{ App\models\CartItem::count() }}</h3>
                       </div>
                     </div>
                   </div>

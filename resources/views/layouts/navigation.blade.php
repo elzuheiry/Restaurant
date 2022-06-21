@@ -1,6 +1,6 @@
 
 <div class="topBar indxTp">
-    <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
+    <a href="{{ route('cart.index') }}"><i class="fa-solid fa-cart-shopping"></i></a>
     <img src="{{ asset('assets/img/logo.jpg') }}" alt="" />
     <button class="openbtn" onclick="openNav()">☰</button>
 </div>

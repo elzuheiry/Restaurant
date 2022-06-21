@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\CartController as AdminCartController;
 use App\Http\Controllers\Admin\FoodController;
+use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\TypeController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\Controller;
@@ -23,14 +25,23 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [Controller::class, 'index'])->name('index');
 Route::get('menu', [Controller::class, 'menu'])->name('menu');
 
-Route::get('cart', [CartController::class, 'index'])->name('cart.index');
-
-Route::group(['prefix' => 'products'], function() {
-
-    Route::get('/', [ProductController::class, 'index'])->name('product.index');
-
-    Route::post('store', [ProductController::class, 'store'])->name('product.store');
+Route::group(['prefix' => 'cart'], function() {
     
+    Route::get('/', [CartController::class, 'index'])->name('cart.index');
+
+    Route::post('/store', [CartController::class, 'store'])->name('cart.store');
+
+    Route::delete('{cart}/destroy', [CartController::class, 'destroy'])->name('cart.destroy');
+
+});
+
+
+Route::group(['prefix' => 'product'], function() {
+
+    Route::get('/{food:slug}', [ProductController::class, 'show'])->name('product.show');
+
+    Route::post('{food}/store', [ProductController::class, 'store'])->name('product.store');
+        
 });
 
 Route::group(['prefix' => 'users'], function() {
@@ -70,6 +81,20 @@ Route::group(['prefix' => 'admins'], function() {
         Route::patch('{type:slug}/update', [TypeController::class, 'update'])->name('type.update');
 
         Route::delete('{type:slug}/destroy', [TypeController::class, 'destroy'])->name('type.destroy');
+
+    });
+
+    Route::group(['prefix' => 'orders'], function() {
+
+        Route::get('/', [OrderController::class, 'index'])->name('order.index');
+        Route::patch('{order}/edit', [OrderController::class, 'edit'])->name('order.edit');
+
+    });
+
+    Route::group(['prefix' => 'carts'], function() {
+
+        Route::get('/', [AdminCartController::class, 'index'])->name('admin.cart.index');
+        Route::patch('{cart}/edit', [AdminCartController::class, 'edit'])->name('admin.cart.edit');
 
     });
     

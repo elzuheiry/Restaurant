@@ -45,7 +45,7 @@
                   </div>
                   <div class="form-group">
                     <label for="exampleInputprice1">Price</label>
-                    <input type="text" class="form-control" id="exampleInputprice1" placeholder="Price" name="price" value="{{ $food->price }}">
+                    <input type="text" class="form-control" step="0.01" id="exampleInputprice1" placeholder="Price" name="price" value="{{ $food->price }}">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputAlias1">Alias</label>

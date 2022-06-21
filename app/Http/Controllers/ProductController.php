@@ -2,30 +2,40 @@
 
 namespace App\Http\Controllers;
 
-use Attribute;
+use App\Models\CartItem;
+use App\Models\Food;
 use Illuminate\Http\Request;
-use Intervention\Image\ImageManagerStatic as Image;
+
+
 
 class ProductController extends Controller
 {
-    //
-    public function index()
+    public function show(Food $food)
     {
-        return view('products.index');
+        return view('products.index', [
+            'food' => $food
+        ]);
     }
 
-    public function store()
+    public function store(Food $food)
     {
         $attributes = request()->validate([
-            'the_size' => ['required'],
+            'sizes' => ['required'],
             'additions' => ['required'],
             'notes' => ['required'],
+            'quantity' => ['required']
         ]);
 
-        Image::make(request("thumbnail"))->resize(250, null, function ($constraint) {
-            $constraint->aspectRatio();
-        })->save(public_path('upload_files/cart/'. $attributes['thumbnail']));
+        $attributes['user_id'] = auth()->user()->id;
+        $attributes['food_id'] = $food->id;
 
+        $quantity = $attributes['quantity'];
+        $price = $food->price;
+        $subTotal = $price * $quantity;
+
+        $attributes['subTotal'] = $subTotal;
         
+        CartItem::create($attributes);
+        return redirect()->route('cart.index');
     }
 }

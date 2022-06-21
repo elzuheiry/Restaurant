@@ -6,17 +6,15 @@
       <!-- Validation Errors -->
       <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
-      <form action="{{ route('product.store') }}" method="post">
+      <form action="{{ route('product.store', $food->id) }}" method="post">
         @csrf
 
         <div class="prod">
-          <img src="{{ asset("assets/img/2.png") }}" alt="..." />
-          <input type="text" hidden name="thumblnail" value="2.png">
+          <img src="{{ asset("upload_files/foods/" . $food->thumbnail) }}" alt="..." />
           <div class="">
-            <h5 class="mt-0">ساندوتش سورى فاهيتا</h5>
-            <p>ساندوتش سورى فاهيتا ساندوتش سورى فاهيتا ساندوتش سور فاهيتا</p>
-            <input type="text" hidden name="name" value="ساندوتش سورى فاهيتا">
-            <input type="text" hidden name="description" value="ساندوتش سورى فاهيتا ساندوتش سورى فاهيتا ساندوتش سور فاهيتا">
+            <h5 class="mt-0">{{ $food->name }}</h5>
+            <p>{{ $food->description }}</p>
+            
             <div class="accordion proAccord" id="proAccord">
   
               <div class="card">
@@ -44,21 +42,21 @@
                   <div class="card-body">
                     <div class="chkItm">
                       <label class="radioCont">
-                        <input type="radio" name="the_size"  value="small" />
+                        <input type="radio" name="sizes"  value="small" />
                         <span class="checkmark"></span>
                       </label>
                       <h5>small</h5>
                     </div>
                     <div class="chkItm">
                       <label class="radioCont">
-                        <input type="radio" name="the_size" value="medium" />
+                        <input type="radio" name="sizes" value="medium" />
                         <span class="checkmark"></span>
                       </label>
                       <h5>medium</h5>
                     </div>
                     <div class="chkItm">
                       <label class="radioCont">
-                        <input type="radio" name="the_size" value="large" />
+                        <input type="radio" name="sizes" value="large" />
                         <span class="checkmark"></span>
                       </label>
                       <h5>large</h5>
@@ -148,7 +146,7 @@
                   <div class="card-body">
                     <div class="chkItm">
                       <label class="radioCont">
-                        <input type="radio" name="notes" value="hot" />
+                        <input type="radio" name="notes" value="spicy" />
                         <span class="checkmark"></span>
                       </label>
                       <h5>حار</h5>
@@ -168,14 +166,14 @@
   
             <div class="inc_dec">
               <div class="button-container">
-                <button class="cart-qty-plus" type="button" value="+">+</button>
+                <button class="cart-qty-plus" type="button" onclick="buttonClick()" value="+">+</button>
               </div>
               <input
                 type="text"
-                name="qty"
+                name="quantity"
                 class="qty"
                 maxlength="12"
-                value="0"
+                value="1"
                 class="input-text qty"
               />
               <div class="button-container">
