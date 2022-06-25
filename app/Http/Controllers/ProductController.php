@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\CartItem;
 use App\Models\Food;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class ProductController extends Controller
 {
@@ -41,6 +41,20 @@ class ProductController extends Controller
 
         }
 
-        return redirect()->back();
+        $quantity = $attributes['quantity'];
+        $price = $food->price;
+        $subTotal = $price * $quantity;
+
+        Session::put('foods', [
+            'size' => $attributes['sizes'],
+            'notes' => $attributes['notes'],
+            'quantity' => $attributes['quantity'],
+            'food_id' => $food->id,
+            'subTotal' => $subTotal
+        ]);
+        
+        // Session::forget('foods');
+        
+        return redirect()->route('cart.index');
     }
 }

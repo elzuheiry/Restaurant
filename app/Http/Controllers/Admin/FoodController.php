@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Class\GeneralSettings;
 use App\Http\Controllers\Controller;
 use App\Models\Food;
 use Illuminate\Http\Request;
@@ -18,26 +19,12 @@ class FoodController extends Controller
         $this->middleware(['role:admin']);
     }
 
-    public function index()
+    public function index(GeneralSettings $settings)
     {
         return view('admin.products.index', [
             'foods' => Food::latest()->paginate(10)
         ]);
     }
-
-    // public function getFood(Request $request)
-    // {
-    //     if($request->ajax()){
-    //         $data = Food::latest()->get();
-
-    //         return Datatables::of($data)
-    //             ->addIndexColumn()
-    //             ->addColumn('action', 'buttons.dataTable')
-    //             ->rowColumns(['action'])
-    //             ->make(true);
-    //     }
-    // }
-
 
     public function create()
     {

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Users;
 
+use App\Class\GeneralSettings;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -15,7 +16,7 @@ class UserController extends Controller
         $this->middleware('auth');
     }
     
-    public function index()
+    public function index(GeneralSettings $settings)
     {
         return view('users.index');
     }

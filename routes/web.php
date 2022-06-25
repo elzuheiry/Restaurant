@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\CartController as AdminCartController;
 use App\Http\Controllers\Admin\FoodController;
+use App\Http\Controllers\Admin\GeneralSettingsController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\TypeController;
 use App\Http\Controllers\CartController;
@@ -96,6 +97,14 @@ Route::group(['prefix' => 'admins'], function() {
 
         Route::get('/', [AdminCartController::class, 'index'])->name('admin.cart.index');
         Route::patch('{cart}/edit', [AdminCartController::class, 'edit'])->name('admin.cart.edit');
+
+    });
+
+    Route::group(['prefix' => 'general-settings'], function() {
+
+        Route::get('/', [GeneralSettingsController::class, 'show'])->name('setting.index');
+        Route::get('edit', [GeneralSettingsController::class, 'edit'])->name('setting.edit');
+        Route::patch('update', [GeneralSettingsController::class, 'update'])->name('setting.update');
 
     });
     

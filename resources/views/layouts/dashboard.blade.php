@@ -9,7 +9,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <title>{{ config('app.name') }}</title>
+    <title>{{ app(App\Class\GeneralSettings::class)->site_name }}</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="{{ asset('dashboard/vendors/feather/feather.css') }}" />
     <link rel="stylesheet" href="{{ asset('dashboard/vendors/mdi/css/materialdesignicons.min.css') }}" />

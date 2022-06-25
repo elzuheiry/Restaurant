@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Class\GeneralSettings;
 use App\Models\Food;
 use App\Models\Type;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
@@ -13,11 +14,11 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    public function index()
+    public function index(GeneralSettings $settings)
     {
         return view('index', [
             'foods' => Food::latest()->get(),
-            'types' => Type::all()
+            'types' => Type::all(),
         ]);
     }
 
