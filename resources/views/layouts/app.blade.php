@@ -38,10 +38,9 @@
     <script type="text/javascript" src="{{ asset('assets/slick/slick.min.js') }}"></script>
     <script src="{{ asset('assets/js/main.js') }}"></script>
     <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBgm7mDY657NJNaamhugUVoQSvcPTzaIPk&callback=initMap&v=weekly"
+      src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap&v=weekly"
       defer
     ></script>
-
     <script>
       let map;
 
@@ -53,10 +52,6 @@
       }
 
       window.initMap = initMap;
-    </script>
-
-    <script>
-
     </script>
   </body>
 </html>
