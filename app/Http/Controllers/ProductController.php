@@ -25,15 +25,14 @@ class ProductController extends Controller
             'quantity' => ['required']
         ]);
 
+        $quantity = $attributes['quantity'];
+        $price = $food->price;
+        $subTotal = $price * $quantity;
+
         if(Auth::id()){
 
             $attributes['user_id'] = Auth::id();
             $attributes['food_id'] = $food->id;
-    
-            $quantity = $attributes['quantity'];
-            $price = $food->price;
-            $subTotal = $price * $quantity;
-    
             $attributes['subTotal'] = $subTotal;
             
             CartItem::create($attributes);
@@ -41,11 +40,7 @@ class ProductController extends Controller
 
         }
 
-        $quantity = $attributes['quantity'];
-        $price = $food->price;
-        $subTotal = $price * $quantity;
-
-        Session::put('foods', [
+        Session::push('foods', [
             'size' => $attributes['sizes'],
             'notes' => $attributes['notes'],
             'quantity' => $attributes['quantity'],
@@ -54,7 +49,6 @@ class ProductController extends Controller
         ]);
         
         // Session::forget('foods');
-        
         return redirect()->route('cart.index');
     }
 }

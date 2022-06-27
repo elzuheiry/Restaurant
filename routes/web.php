@@ -29,6 +29,7 @@ Route::get('menu', [Controller::class, 'menu'])->name('menu');
 Route::group(['prefix' => 'cart'], function() {
     
     Route::get('/', [CartController::class, 'index'])->name('cart.index');
+    Route::get('/your-location', [CartController::class, 'getLocation'])->name('cart.location');
 
     Route::post('/store', [CartController::class, 'store'])->name('cart.store');
 

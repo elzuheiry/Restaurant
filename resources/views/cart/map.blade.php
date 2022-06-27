@@ -1,18 +1,62 @@
 
 
-<x-app-layout>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ app(App\Class\GeneralSettings::class)->site_name }}</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 
-    <div class="topBar">
-        <h4>الموقع</h4>
-        <input id="pac-input" class="controls" type="text" placeholder="بحث">
-      </div>
-      <div class="clearfix"></div>
-      <section class="mapSec">
-        <iframe id="map-canvas" 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14932201.030168267!2d54.103654599190264!3d23.976104271929838!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15e7b33fe7952a41%3A0x5960504bc21ab69b!2z2KfZhNiz2LnZiNiv2YrYqQ!5e0!3m2!1sar!2seg!4v1643276435125!5m2!1sar!2seg" 
-            width="100%" height="100%" style="border:0;" allowfullscreen="" 
-            loading="lazy">
-        </iframe>
-      </section>
+    <link rel="stylesheet" href="{{ asset('assets/css/all.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/slick/slick.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/slick/slick-theme.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" />
+    <style>
+      #map_location {
+        height: 100%;
+        width: 100%;
+      }
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script>
+      let map;
 
-</x-app-layout>
+      function initMap() {
+        map = new google.maps.Map(document.getElementById("map_location"), {
+          center: { lat: -34.397, lng: 150.644 },
+          zoom: 8,
+        });
+      }
+
+      window.initMap = initMap;
+    </script>
+    
+
+  </head>
+  <body>
+    <div class="centralize col-md-4">
+        @include('layouts.navigation')
+
+        <div class="clearfix"></div>
+
+        <div id="map_location"></div>
+
+        @include('layouts.footer')
+    </div>
+
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBgm7mDY657NJNaamhugUVoQSvcPTzaIPk&callback=initMap">
+    </script>
+
+    
+  </body>
+</html>

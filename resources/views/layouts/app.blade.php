@@ -14,7 +14,11 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/slick/slick.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/slick/slick-theme.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" />
-
+    <style>
+      #map {
+        height: 100%;
+      }
+    </style>
 
   </head>
   <body>
@@ -33,6 +37,23 @@
     <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('assets/slick/slick.min.js') }}"></script>
     <script src="{{ asset('assets/js/main.js') }}"></script>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBgm7mDY657NJNaamhugUVoQSvcPTzaIPk&callback=initMap&v=weekly"
+      defer
+    ></script>
+
+    <script>
+      let map;
+
+      function initMap() {
+        map = new google.maps.Map(document.getElementById("map"), {
+          center: { lat: -34.397, lng: 150.644 },
+          zoom: 8,
+        });
+      }
+
+      window.initMap = initMap;
+    </script>
 
     <script>
 

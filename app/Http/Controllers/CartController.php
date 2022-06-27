@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Class\GeneralSettings;
 use App\Models\CartItem;
-use App\Models\Food;
 use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -17,7 +16,6 @@ class CartController extends Controller
     {
         if(Session::has('foods')){
             return view('cart.index', [
-                'food' => Food::where('id', Session::get('foods')['food_id'])->first(),
                 'the_tax' => $settings->the_tax,
                 'delivery_price' => $settings->delivery_price
             ]);
@@ -29,6 +27,11 @@ class CartController extends Controller
             'the_tax' => $settings->the_tax,
             'delivery_price' => $settings->delivery_price
         ]);
+    }
+
+    public function getLocation()
+    {
+        return view('cart.map');
     }
 
     public function store()
